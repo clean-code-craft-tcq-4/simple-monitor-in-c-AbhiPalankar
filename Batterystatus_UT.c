@@ -9,7 +9,7 @@ int CheckbatteryIsNotOk(float expectedsoc, float expectedTemp , float expectedCh
 	batteryIsNotOk(expectedsoc,expectedTemp,expectedChargeRate);
 }
 
-void testBatteryStatus_env(void)
+void CheckBatteryStatus(void)
 {
   assert(CheckbatteryIsOk(25, 70, 0.7));
   assert(CheckbatteryIsNotOk(50, 85, 0));
