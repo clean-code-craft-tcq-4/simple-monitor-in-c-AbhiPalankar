@@ -6,7 +6,7 @@
 
 extern int checkbatteryIsOk( float expectedsoc, float expectedTemp , float expectedChargeRate);
 extern int checkbatteryIsNotOk( float expectedsoc, float expectedTemp , float expectedChargeRate);
-extern void checkBatteryStatus(void);
+extern void CheckBatteryStatus(void);
 
 
 #endif
