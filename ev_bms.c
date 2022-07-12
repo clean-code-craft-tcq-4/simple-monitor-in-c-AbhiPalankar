@@ -79,7 +79,7 @@ int BatteryTempIsOk(float temp, char tempUnit)
 	}
 	else
 	{
-		tempStatus = TempHighLimit(temp);
+		tempStatus = TempHighLimit(temp, tempUnit);
 	}
 	return tempStatus;
 }
