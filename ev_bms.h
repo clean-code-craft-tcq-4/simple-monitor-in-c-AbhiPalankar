@@ -42,8 +42,8 @@ extern int TempIsOk(float temp , char tempUnit);
 extern int ChargeRateLowLimit(float chargeRate);
 extern int ChargeRateHighLimit(float chargeRate);
 extern int ChargeRateIsOk(float chargeRate );
-extern bool inttBattTempUnit(char cel);
-extern float inttBattConvertTemp(float temp, char tempUnit);
+extern bool TempUnit(char cel);
+extern float ConvertTemp(float temp, char tempUnit);
 
 extern int batteryIsOk( float soc, float temp , float chargeRate, char tempUnit);
 extern int batteryIsNotOk( float soc, float temp , float chargeRate,char tempUnit);
