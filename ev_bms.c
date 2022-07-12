@@ -56,7 +56,7 @@ int TempLowLimit(float temp)
 	}
 }
 
-int TempHighLimit(float temp)
+int TempHighLimit(float temp, char tempUnit)
 {
 	if ((temp >= MIN_HIGHTEMPWARNING) || (temp <= MIN_HIGHTEMPBREACH))
 	{
@@ -64,13 +64,13 @@ int TempHighLimit(float temp)
 	}
 	else 
 	{
-		inttBattConvertTemp(temp);
+		ConvertTemp(temp, tempUnit);
 		return E_NOT_OK; 
 	}
 	
 }
 
-int BatteryTempIsOk(float temp)
+int BatteryTempIsOk(float temp, char tempUnit)
 {
 	int tempStatus = E_OK;
 	if((temp >= MIN_LOWTEMPBREACH) && (temp < MIN_HIGHTEMPWARNING))
@@ -84,8 +84,15 @@ int BatteryTempIsOk(float temp)
 	return tempStatus;
 }
 
+ bool TempUnit(char cel)
+ {
+ 	if(cel == TEMP_UNIT_CELCIUS)
+		return true;
+	 else
+		return false;
+ }
 
-float ConvertTemp(float temp)
+float ConvertTemp(float temp, char tempUnit)
 {
 	float celcius;
 	if((temp > MAX_HIGHTEMPBREACH) && (tempUnit == TEMP_UNIT_FARENHEIT))
@@ -137,17 +144,17 @@ int ChargeRateIsOk(float chargeRate )
 	return chargeRateStatus;
 }
 
-int batteryIsOk( float soc, float temp , float chargeRate)
+int batteryIsOk( float soc, float temp , float chargeRate, char tempUnit )
 {	
 	float stateOfCharge = inttBatterySocIsOk(soc);
-	float temperature = BatteryTempIsOk(temp);
+	float temperature = BatteryTempIsOk(temp, tempUnit);
 	float chargerate = ChargeRateIsOk(chargeRate);
 	return (stateOfCharge && temperature && chargerate);
 }
-int batteryIsNotOk(float soc, float temp , float chargeRate)
+int batteryIsNotOk(float soc, float temp , float chargeRate, char tempUnit)
 {	
 	float stateOfCharge = inttBatterySocIsOk(soc);
-	float temperature = BatteryTempIsOk(temp);
+	float temperature = BatteryTempIsOk(temp, tempUnit);
 	float chargerate = ChargeRateIsOk(chargeRate);
 	return (stateOfCharge || temperature || chargerate);
 }
