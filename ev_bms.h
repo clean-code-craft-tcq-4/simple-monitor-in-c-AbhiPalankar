@@ -25,6 +25,8 @@
 #define MIN_HIGHCHARGERATEBREACH  0.8
 #define MAX_HIGHCHARGERATEBREACH  1.0
 
+#define TEMP_UNIT_CELCIUS         'C'
+#define TEMP_UNIT_FARENHEIT       'F'
 
 #define E_OK                       0
 #define E_NOT_OK                   1
@@ -35,15 +37,16 @@ extern int SocLowLimit(float soc);
 extern int SocHighLimit(float soc);
 extern int BatterySocIsOk(float soc );
 extern int TempLowLimit(float temp);
-extern int TempHighLimit(float temp);
-extern int TempIsOk(float temp);
+extern int TempHighLimit(float temp, char tempUnit);
+extern int TempIsOk(float temp , char tempUnit);
 extern int ChargeRateLowLimit(float chargeRate);
 extern int ChargeRateHighLimit(float chargeRate);
 extern int ChargeRateIsOk(float chargeRate );
-extern float inttBattConvertTemp(float temp);
+extern bool inttBattTempUnit(char cel);
+extern float inttBattConvertTemp(float temp, char tempUnit);
 
-extern int batteryIsOk( float soc, float temp , float chargeRate);
-extern int batteryIsNotOk( float soc, float temp , float chargeRate);
+extern int batteryIsOk( float soc, float temp , float chargeRate, char tempUnit);
+extern int batteryIsNotOk( float soc, float temp , float chargeRate,char tempUnit);
 
 
 #endif
