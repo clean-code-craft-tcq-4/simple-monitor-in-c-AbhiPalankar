@@ -1,5 +1,5 @@
-#ifndef TEST_BMSSTATUS_H
-#define TEST_BMSSTATUS_H
+#ifndef BATTERYSTATUS_UT_H
+#define BATTERYSTATUS_UT_H
 
 #include <assert.h>
 
