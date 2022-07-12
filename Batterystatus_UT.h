@@ -4,8 +4,8 @@
 #include <assert.h>
 
 
-extern int checkbatteryIsOk( float expectedsoc, float expectedTemp , float expectedChargeRate, char expectedTempUnit);
-extern int checkbatteryIsNotOk( float expectedsoc, float expectedTemp , float expectedChargeRate, char expectedTempUnit);
+extern int checkbatteryIsOk( float expectedsoc, float expectedTemp , float expectedChargeRate);
+extern int checkbatteryIsNotOk( float expectedsoc, float expectedTemp , float expectedChargeRate);
 extern void checkBatteryStatus(void);
 
 
